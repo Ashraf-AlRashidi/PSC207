@@ -2,165 +2,99 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة البشمهندس أشروووف | جلوبال إيشوز (قضايا دولية معاصرة PSC207)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090d16" />
+  <title>Global Issues (PSC207) | البشمهندس أشروووف</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ==================== الهيدر الملكي ==================== -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="brand-box" onclick="switchSection('home')">
-        <div class="brand-crown">👑</div>
-        <div class="brand-text">
-          <span class="brand-name">البشمهندس أشروووف</span>
-          <span class="brand-sub">Global Issues • PSC207 VIP Platform</span>
-        </div>
+  <!-- ==================== هيدر مدمج ونظيف جداً (لا يأخذ مساحة ويختفي مع التحرك في الصفحة) ==================== -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-brand">
+        <span class="brand-dot"></span>
+        <span class="brand-title">Global Issues</span>
+        <span class="brand-sep">|</span>
+        <span class="brand-dev">👑 البشمهندس أشروووف</span>
       </div>
 
-      <nav class="nav-links" id="mainNavLinks">
-        <button class="nav-btn active" data-sec="home" onclick="switchSection('home')">
-          🏠 الرئيسية
-        </button>
-        <button class="nav-btn" data-sec="part1" onclick="openPart('part1', 'summary')">
-          🌍 الجزء الأول
-        </button>
-        <button class="nav-btn" data-sec="part2" onclick="openPart('part2', 'summary')">
-          💧 الجزء الثاني
-        </button>
-        <button class="nav-btn" data-sec="part3" onclick="openPart('part3', 'summary')">
-          📊 الجزء الثالث
-        </button>
-        <button class="nav-btn" data-sec="part4" onclick="openPart('part4', 'summary')">
-          🇪🇬 الجزء الرابع
-        </button>
-        <button class="nav-btn basmaga-nav" data-sec="basmaga" onclick="switchSection('basmaga')">
-          🔥 بصمجة أشروووف
-        </button>
-        <button class="nav-btn" data-sec="exam" onclick="switchSection('exam')">
-          📝 الامتحان الشامل (88)
-        </button>
-        <button class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل المظهر">
+      <div class="topbar-end">
+        <span class="dua-pill">أسألكم دعوة حلوة من القلب ❤️</span>
+        <button class="icon-btn" id="themeToggleBtn" onclick="toggleTheme()" title="تبديل المظهر">
           ☀️
         </button>
-      </nav>
+      </div>
     </div>
+
+    <!-- شريط التنقل للكمبيوتر فقط (على الموبايل يظهر شريط سفلي أنيق) -->
+    <nav class="desktop-nav" aria-label="أقسام الموقع">
+      <button class="main-nav-btn active" data-sec="summaries" onclick="switchMainSection('summaries')">📚 التلخيصات والأجزاء</button>
+      <button class="main-nav-btn" data-sec="basmaga" onclick="switchMainSection('basmaga')">⚡ بصمجة أشروووف</button>
+      <button class="main-nav-btn" data-sec="exam" onclick="switchMainSection('exam')">📄 امتحان السنة اللي فاتت</button>
+      <button class="main-nav-btn" data-sec="simulator" onclick="switchMainSection('simulator')">🎯 اختبر نفسك (محاكي)</button>
+    </nav>
   </header>
 
   <!-- ==================== المحتوى الرئيسي ==================== -->
   <main class="main-wrapper">
 
-    <!-- ==================== 1. القسم الرئيسي (HOME) ==================== -->
-    <section id="sec-home" class="section-view active">
-      <div class="hero-card">
-        <div class="hero-vip-ribbon">
-          <span>👑</span>
-          <span>إعداد وتصميم خاص • البشمهندس أشروووف</span>
-          <span>✨</span>
-        </div>
-        <h1 class="hero-title">
-          الموسوعة الشاملة لمادة <span style="color:var(--cyan);">جلوبال إيشوز</span><br />
-          برعاية <span class="hero-author-highlight">البشمهندس أشروووف</span>
-        </h1>
-        <p class="hero-subtitle">
-          قضايا دولية معاصرة (الفقر المائي والمشكلات البيئية - PSC207) • جامعة العلمين الدولية • أ.د. أشرف محمد مصطفى<br />
-          كل جزء في المنهج ليه قسم مستقل خاص بيه، وجوه كل قسم هتلاقي: <strong>(1) التلخيص الكامل + (2) أسئلة على الجزء + (3) أسئلة الميد اللي فات على الجزء ده!</strong>
-        </p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="openPart('part1', 'summary')">
-            🌍 ابدأ بالجزء الأول (التلخيص + الأسئلة + الميد)
-          </button>
-          <button class="btn-gold" onclick="switchSection('basmaga')">
-            🔥 قسم البصمجة السريعة
-          </button>
-          <button class="btn-outline" onclick="switchSection('exam')">
-            📝 امتحان السنة اللي فاتت الكامل (88 سؤال)
-          </button>
+    <!-- ==================== 1. قسم التلخيصات والأجزاء (كل جزء لوحده: تلخيص + أسئلة + ميد سابق) ==================== -->
+    <section id="sec-summaries" class="section-view active">
+      <!-- شريط اختيار الجزء والتبويب الفرعي في مساحة مدمجة جداً للموبايل -->
+      <div class="compact-controls">
+        <!-- سطر اختيار الجزء (الجزء 1، الجزء 2، الجزء 3، الجزء 4) -->
+        <div id="partsPillsBar" class="parts-bar"></div>
+
+        <!-- سطر التبويبات الـ 3 داخل كل جزء -->
+        <div class="sub-tabs-bar" id="partSubTabsBar">
+          <button class="sub-tab-btn active" data-tab="summary" onclick="switchPartSubTab('summary')">📖 التلخيص</button>
+          <button class="sub-tab-btn" data-tab="practice" onclick="switchPartSubTab('practice')">❓ أسئلة الجزء</button>
+          <button class="sub-tab-btn" data-tab="midterm" onclick="switchPartSubTab('midterm')">🎯 الميد اللي فات</button>
         </div>
       </div>
 
-      <!-- كروت الأجزاء المقسمة -->
-      <h2 style="font-size:1.5rem; font-weight:900; margin-bottom:1rem; color:var(--gold);">
-        📚 أقسام وأجزاء المنهج (كل جزء جواه: التلخيص + أسئلة الجزء + أسئلة الميد اللي فات)
-      </h2>
-      <div id="homePartsGrid" class="sections-grid"></div>
-
-      <!-- كروت البصمجة والامتحان العام وملفات الـ PDF -->
-      <div class="info-two-col">
-        <div class="feature-card gold-card" onclick="switchSection('basmaga')">
-          <div>
-            <span class="feature-icon">🔥</span>
-            <h3 class="feature-title">قسم البصمجة (بصمجة البشمهندس أشروووف)</h3>
-            <p class="feature-desc">
-              الخلاصة السحرية ليلة الامتحان: شفرات «أول ما تشوف كذا.. اختار كذا»، تجميعة كل أرقام ونسب المنهج، فلاش كاردز تفاعلية، وفخاخ صح وغلط!
-            </p>
-          </div>
-          <span class="feature-badge">ادخل على كبسولة التقفيل السريع 👑 ⬅️</span>
-        </div>
-
-        <div class="feature-card" onclick="switchSection('exam')">
-          <div>
-            <span class="feature-icon">📝</span>
-            <h3 class="feature-title">امتحان السنة اللي فاتت الكامل + المحاكي</h3>
-            <p class="feature-desc">
-              ورقة امتحان العام الماضي كاملة (88 سؤال) بالحل النموذجي، بالإضافة إلى «محاكي امتحان بالوقت» يطلعلك نتيجتك وشهادة تقدير باسمك!
-            </p>
-          </div>
-          <span class="feature-badge">ورقة الامتحان + محاكي بالوقت ⬅️</span>
-        </div>
+      <!-- شريط عنوان الجزء المختار (سطر واحد أنيق) -->
+      <div class="active-part-strip">
+        <span id="activePartBadge" class="part-tag">الجزء الأول</span>
+        <h1 id="activePartTitle" class="part-heading">مدخل للقضايا البيئية والنظم الإيكولوجية</h1>
       </div>
 
-      <div class="glass-panel">
-        <div class="panel-header">
-          <h3 class="panel-title">📂 ملفات المحاضرات والامتحانات الأصلية (PDF)</h3>
-          <span style="color:var(--cyan); font-weight:800;">6 ملفات</span>
-        </div>
-        <div id="homePdfList" class="pdf-list"></div>
-      </div>
+      <!-- محتوى الجزء المختار -->
+      <div id="activePartContent"></div>
     </section>
 
-    <!-- ==================== 2. حاوية الأجزاء المستقلة (PART 1, PART 2, PART 3, PART 4) ==================== -->
-    <div id="dynamicPartsWrapper"></div>
-
-    <!-- ==================== 3. قسم البصمجة 🔥 (BASMAGA) ==================== -->
+    <!-- ==================== 2. قسم البصمجة 🔥 (BASMAGA) ==================== -->
     <section id="sec-basmaga" class="section-view">
-      <div class="basmaga-hero">
-        <div class="hero-vip-ribbon">🔥 كبسولة ليلة الامتحان • بصمجة البشمهندس أشروووف 👑</div>
-        <h2 style="font-size:2rem; font-weight:900; margin-bottom:0.4rem;">
-          قسم البصمجة الذكية — قفّل المادة في نص ساعة!
-        </h2>
-        <p style="color:#fde68a; font-weight:600;">
-          هنا خلاصة الخلاصة: الكلمات المفتاحية اللي أول ما عينك تقع عليها في السؤال تختار الإجابة وانت مغمض، مع كل أرقام المنهج وفخاخ صح وغلط!
-        </p>
+      <div class="active-part-strip" style="margin-bottom:12px;">
+        <span class="part-tag" style="background:rgba(245,158,11,0.18); color:var(--gold);">🔥 كبسولة التقفيل</span>
+        <h1 class="part-heading">قسم البصمجة الذكية — البشمهندس أشروووف</h1>
       </div>
 
       <!-- فلاش كاردز البصمجة السريعة -->
-      <div class="glass-panel" style="margin-bottom:2rem;">
+      <div class="glass-panel" style="margin-bottom:14px;">
         <div class="panel-header">
-          <h3 class="panel-title">🃏 فلاش كاردز البصمجة التفاعلية (اضغط على الكارت لقلبه)</h3>
-          <span style="color:var(--gold); font-weight:800;">اختبر سرعتك!</span>
+          <h3 class="panel-title">🃏 فلاش كاردز البصمجة (اضغط لقلب الكارت)</h3>
         </div>
         <div class="flashcard-container">
           <div id="flashcardBox" class="flashcard-box" onclick="flipFlashcard()"></div>
-          <div style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
-            <button class="btn-primary" onclick="nextFlashcard(-1)">➡️ الكارت السابق</button>
-            <button class="btn-gold" onclick="flipFlashcard()">🔄 اقلب الكارت</button>
-            <button class="btn-outline" onclick="randomFlashcard()" style="color:var(--text-main); border-color:var(--border-glass);">🎲 كارت عشوائي</button>
-            <button class="btn-primary" onclick="nextFlashcard(1)">الكارت التالي ⬅️</button>
+          <div style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn-primary" onclick="nextFlashcard(-1)">➡️ السابق</button>
+            <button class="btn-gold" onclick="flipFlashcard()">🔄 اقلب</button>
+            <button class="btn-outline" onclick="randomFlashcard()" style="color:var(--text-main); border-color:var(--border-glass);">🎲 عشوائي</button>
+            <button class="btn-primary" onclick="nextFlashcard(1)">التالي ⬅️</button>
           </div>
         </div>
       </div>
 
       <!-- شفرات البصمجة: أول ما تشوف ... اختار ... -->
-      <div class="glass-panel" style="margin-bottom:2rem;">
-        <div class="panel-header" style="flex-wrap:wrap; gap:1rem;">
-          <h3 class="panel-title">⚡ شفرات البصمجة الفورية (أول ما تشوف ⬅️ اختار فوراً)</h3>
+      <div class="glass-panel" style="margin-bottom:14px;">
+        <div class="panel-header" style="flex-wrap:wrap; gap:0.6rem;">
+          <h3 class="panel-title">⚡ شفرات البصمجة (أول ما تشوف ⬅️ اختار فوراً)</h3>
           <input
             type="text"
             id="basmagaSearch"
             class="search-input"
-            style="max-width:340px;"
             placeholder="🔍 ابحث في شفرات البصمجة..."
             oninput="filterBasmagaTriggers()"
           />
@@ -169,9 +103,9 @@
       </div>
 
       <!-- بصمجة الأرقام والتواريخ -->
-      <div class="glass-panel" style="margin-bottom:2rem;">
+      <div class="glass-panel" style="margin-bottom:14px;">
         <div class="panel-header">
-          <h3 class="panel-title">🔢 بصمجة كل أرقام ونسب المنهج في نظرة واحدة</h3>
+          <h3 class="panel-title">🔢 بصمجة كل أرقام ونسب المنهج</h3>
         </div>
         <div id="basmagaNumbersGrid" class="numbers-grid"></div>
       </div>
@@ -179,82 +113,90 @@
       <!-- فخاخ وتركات صح وغلط -->
       <div class="glass-panel">
         <div class="panel-header">
-          <h3 class="panel-title">🚨 فخاخ وتركات أسئلة (True / False) اللي بتوقع في الامتحان!</h3>
+          <h3 class="panel-title">🚨 فخاخ وتركات أسئلة (True / False)</h3>
         </div>
         <div id="basmagaTrapsList"></div>
       </div>
     </section>
 
-    <!-- ==================== 4. قسم امتحان السنة اللي فاتت الكامل (PAST EXAM & SIMULATOR) ==================== -->
+    <!-- ==================== 3. قسم امتحان السنة اللي فاتت (PAST EXAM) ==================== -->
     <section id="sec-exam" class="section-view">
-      <div class="hero-card" style="padding: 1.85rem 2rem; margin-bottom: 1.5rem;">
-        <div class="hero-vip-ribbon">📝 امتحان السنة اللي فاتت + المحاكي • البشمهندس أشروووف</div>
-        <h2 style="font-size:1.85rem; font-weight:900; color:#fff; margin-bottom:0.4rem;">
-          امتحان العام الماضي الشامل لمادة القضايا الدولية المعاصرة (88 سؤال)
-        </h2>
-        <p style="color:#cbd5e1; margin-bottom:1.1rem;">
-          تقدر تذاكر ورقة الامتحان الكاملة بالحل النموذجي المراجع، أو تدخل «محاكي الامتحان بالوقت» عشان تعيش جو اللجنة وتستلم شهادة تقديرك من البشمهندس أشروووف!
-        </p>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-          <button class="btn-gold" onclick="startExamSimulator(40)">
-            ⏱️ ابدأ محاكي امتحان الفاينال (40 سؤال بالوقت)
-          </button>
-          <button class="btn-primary" onclick="startExamSimulator(88)">
-            🔥 ابدأ الامتحان الشامل الكامل (88 سؤال)
-          </button>
-          <button class="btn-outline" onclick="showPastPaperMode()">
-            📄 عرض ورقة امتحان السنة اللي فاتت بالحل النموذجي
-          </button>
-          <a class="btn-outline" href="global.pdf" target="_blank">
-            📥 تحميل ملف الامتحان الأصلي (PDF)
-          </a>
+      <div class="active-part-strip" style="margin-bottom:12px;">
+        <span class="part-tag">📄 88 سؤال</span>
+        <h1 class="part-heading">امتحان وبنك أسئلة السنة اللي فاتت بالحل النموذجي</h1>
+      </div>
+
+      <div class="controls-bar">
+        <input
+          type="text"
+          id="pastExamSearch"
+          class="search-input"
+          placeholder="🔍 ابحث في أسئلة الامتحان السابق..."
+          oninput="renderPastExamPaper()"
+        />
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <a class="btn-gold" href="global.pdf" target="_blank" style="padding:0.45rem 0.9rem; font-size:0.85rem;">📥 PDF المحلول</a>
+          <a class="btn-primary" href="4_5820977512800331003.pdf" target="_blank" style="padding:0.45rem 0.9rem; font-size:0.85rem;">📄 PDF بدون حل</a>
         </div>
       </div>
 
-      <!-- منطقة محاكي الامتحان التفاعلي -->
+      <div id="pastPaperQuestions"></div>
+    </section>
+
+    <!-- ==================== 4. قسم اختبر نفسك (محاكي الامتحان التفاعلي) ==================== -->
+    <section id="sec-simulator" class="section-view">
+      <div class="glass-panel" style="margin-bottom:14px;">
+        <h2 style="font-size:1.15rem; font-weight:800; margin-bottom:0.4rem; color:var(--gold);">
+          🎯 محاكي الامتحان التفاعلي بالوقت
+        </h2>
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:0.85rem;">
+          اختبر نفسك في أسئلة عشوائية أو الامتحان الكامل مع تايمر وتصحيح تلقائي فوري!
+        </p>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn-gold" onclick="startExamSimulator(20)">⚡ اختبار سريع (20 سؤال)</button>
+          <button class="btn-primary" onclick="startExamSimulator(40)">⏱️ محاكي الفاينال (40 سؤال)</button>
+          <button class="btn-outline" style="color:var(--text-main); border-color:var(--border-glass);" onclick="startExamSimulator(88)">🔥 الشامل (88 سؤال)</button>
+        </div>
+      </div>
+
       <div id="examSimulatorArea" style="display:none;">
         <div class="exam-top-bar">
           <div>
-            <strong style="color:var(--gold);">👑 لجنة امتحان البشمهندس أشروووف</strong>
-            <div id="examProgressText" style="font-size:0.88rem; color:#cbd5e1;"></div>
+            <strong style="color:var(--gold); font-size:0.9rem;">👑 لجنة الاختبار</strong>
+            <div id="examProgressText" style="font-size:0.8rem; color:#cbd5e1;"></div>
           </div>
           <div id="examTimerDisplay" class="timer-badge">⏱️ 30:00</div>
-          <div style="display:flex; gap:0.5rem;">
-            <button class="btn-gold" style="padding:0.5rem 1.1rem; font-size:0.9rem;" onclick="finishExamSimulator()">
-              ✅ تسليم الورقة وإظهار النتيجة
-            </button>
-            <button class="btn-outline" style="padding:0.5rem 1rem; font-size:0.9rem;" onclick="showPastPaperMode()">
-              ✖ إلغاء
-            </button>
-          </div>
+          <button class="btn-gold" style="padding:0.4rem 0.85rem; font-size:0.82rem;" onclick="finishExamSimulator()">
+            ✅ تسليم الورقة
+          </button>
         </div>
 
         <div id="examCertificateContainer"></div>
         <div id="simulatorQuestionsList"></div>
       </div>
-
-      <!-- منطقة ورقة الامتحان المحلولة -->
-      <div id="pastPaperArea">
-        <div class="controls-bar" style="border-color:var(--gold);">
-          <div>
-            <strong style="color:var(--gold); font-size:1.05rem;">📌 ورقة امتحان وبنك أسئلة العام الماضي كاملة (88 سؤال مجاب عنها بالكامل)</strong>
-            <p style="font-size:0.88rem; color:var(--text-muted);">تمت مراجعة وتدقيق جميع الإجابات طبقاً لمحاضرات أ.د. أشرف محمد مصطفى.</p>
-          </div>
-          <button class="btn-primary" onclick="window.print()">🖨️ طباعة الامتحان</button>
-        </div>
-        <div id="pastPaperQuestions"></div>
-      </div>
     </section>
 
   </main>
 
-  <!-- ==================== الفوتر الملكي ==================== -->
-  <footer class="footer">
-    <div class="footer-sig">👑 مع تحيات البشمهندس أشروووف 👑</div>
-    <p style="color:var(--text-muted); font-size:0.92rem;">
-      منصة مقرر القضايا الدولية المعاصرة (Global Issues - PSC207) • الفقر المائي والمشكلات البيئية • بالتوفيق والـ A+ للجميع ✨
-    </p>
-  </footer>
+  <!-- ==================== شريط الموبايل السفلي (4 أقسام واضحة بضغطة واحدة) ==================== -->
+  <nav class="mobile-dock" aria-label="التنقل السريع">
+    <button class="dock-item active" data-sec="summaries" onclick="switchMainSection('summaries')" type="button">
+      <span class="dock-ic">📚</span>
+      <span class="dock-lbl">التلخيصات</span>
+    </button>
+    <button class="dock-item" data-sec="basmaga" onclick="switchMainSection('basmaga')" type="button">
+      <span class="dock-ic">⚡</span>
+      <span class="dock-lbl">البصمجة</span>
+    </button>
+    <button class="dock-item" data-sec="exam" onclick="switchMainSection('exam')" type="button">
+      <span class="dock-ic">📄</span>
+      <span class="dock-lbl">امتحان سابق</span>
+    </button>
+    <button class="dock-item" data-sec="simulator" onclick="switchMainSection('simulator')" type="button">
+      <span class="dock-ic">🎯</span>
+      <span class="dock-lbl">اختبر نفسك</span>
+    </button>
+  </nav>
 
   <script src="data.js"></script>
   <script src="app.js"></script>

@@ -1,6 +1,33 @@
 // ==================== بيانات منصة البشمهندس أشروووف - جلوبال إيشوز ====================
 
 const COURSE_DATA = {
+  // ========================================================================
+  // إعدادات إشعار دخول الزوار (Visitor Notification Settings)
+  // ========================================================================
+  config: {
+    siteTitle: "ليلة الامتحان",
+    subjectName: "Global Issues - قضايا دولية معاصرة (PSC207)",
+    developerName: "البشمهندس أشروووف",
+    notifications: {
+      enabled: true,
+      notifyOncePerSession: true, // true = إشعار واحد لكل جلسة زائر
+
+      // قناة الإشعارات الفورية الصامتة المجانية (ntfy.sh) - نفس قناتك الشغالة على موبايلك
+      ntfyTopic: "ashraf_climate_midterm_2026",
+
+      // الطريقة 1: إشعار على الإيميل عبر Web3Forms أو FormSubmit
+      emailWeb3FormsKey: "",
+      emailFormSubmitAddress: "",
+
+      // الطريقة 2: إشعار لحظي على تليجرام (Telegram Bot)
+      telegramBotToken: "",
+      telegramChatId: "",
+
+      // الطريقة 3: أي Webhook خارجي إضافي
+      customWebhookUrl: ""
+    }
+  },
+
   meta: {
     courseTitle: "قضايا دولية معاصرة (Global Issues)",
     courseSubtitle: "الفقر المائي والمشكلات البيئية – جامعة العلمين الدولية (PSC207)",
