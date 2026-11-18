@@ -4,8 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#090d16" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Global Issues (PSC207) | البشمهندس أشروووف</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    /* حماية ضد كاش متصفح الموبايل على GitHub Pages */
+    .topbar { background: var(--bg-card, #111827); border-bottom: 1px solid rgba(255,255,255,0.09); position: relative; }
+    .topbar-inner { max-width: 960px; margin: 0 auto; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: nowrap; }
+    .topbar-brand { display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+    .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
+    .brand-dev { font-weight: 800; font-size: 0.8rem; color: #f59e0b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .topbar-end { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .dua-pill { background: rgba(16,185,129,0.14); color: #10b981; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+    .icon-btn { background: #1a2333; border: 1px solid rgba(255,255,255,0.09); color: #f8fafc; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+    .desktop-nav { max-width: 960px; margin: 0 auto; padding: 0 12px 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .main-nav-btn, .part-pill-btn, .sub-tab-btn, .dock-item { font-family: 'Cairo', sans-serif; cursor: pointer; }
+    .main-nav-btn { background: #1a2333; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.09); padding: 7px 10px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; }
+    .main-nav-btn.active, .part-pill-btn.active { background: #10b981 !important; color: #fff !important; border-color: #10b981 !important; }
+    .compact-controls { background: #111827; border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; padding: 8px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .parts-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+    .part-pill-btn { background: #1a2333; color: #cbd5e1; border: 1px solid rgba(255,255,255,0.09); border-radius: 8px; padding: 6px 4px; font-weight: 800; font-size: 0.8rem; text-align: center; }
+    .sub-tabs-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #090d16; padding: 4px; border-radius: 8px; }
+    .sub-tab-btn { background: transparent; color: #94a3b8; border: none; border-radius: 6px; padding: 6px 4px; font-weight: 700; font-size: 0.78rem; }
+    .sub-tab-btn.active { background: #111827; color: #10b981; }
+    .active-part-strip { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding: 0 4px; }
+    .part-tag { background: rgba(16,185,129,0.14); color: #10b981; font-size: 0.74rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; flex-shrink: 0; }
+    .part-heading { font-size: 0.96rem; font-weight: 800; line-height: 1.35; }
+    .mobile-dock { display: none; }
+    @media (max-width: 768px) {
+      .desktop-nav, .brand-title, .brand-sep { display: none !important; }
+      .mobile-dock { display: grid !important; grid-template-columns: repeat(4, 1fr); position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: #111827; border-top: 1px solid rgba(255,255,255,0.09); padding: 5px 6px; }
+      .dock-item { background: transparent; border: none; color: #94a3b8; padding: 5px 2px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+      .dock-item.active { color: #10b981; background: rgba(16,185,129,0.14); }
+      .dock-ic { font-size: 1.1rem; }
+      .dock-lbl { font-size: 0.7rem; font-weight: 700; }
+    }
+  </style>
 </head>
 <body>
 
@@ -198,7 +234,7 @@
     </button>
   </nav>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=5"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
